@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1, viewpoint-fit=cover">
+    <title>Neutral Color Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>Neutral Color Calculator</h1>
+      </header>
+      <main>
+          <form id="color-form" name="color-form">
+            <div id="input-box">
+              <input autofocus id="color0" type="text" maxlength="7" name="color0" onblur="changeBackground(this)" placeholder="color0" spellcheck="false" value="#">
+              <input id="color1" type="text" maxlength="7" name="color1" value="#" placeholder="color1" spellcheck="false" onblur="changeBackground(this)">
+            </div>
+          <div id="button-box">
+            <input id="btn" class="btn" type="button" value="Go">
+            <input id="add" class="btn" type="button" value="Add color">
+            <input id="remove" class="btn" type="button" value="Remove color">
+            <input id="toggle" class="btn" type="button" value="Remove #">
+          </div>
+          </form>
+          <div class="reslut-box">
+            <p id="result" class="result-box--text">Result</p>
+          </div>
+      </main>
+      <footer>
+        <p>&copy; 2020 wasshoy</p>
+      </footer>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
