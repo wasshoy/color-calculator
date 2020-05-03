@@ -13,6 +13,10 @@ colorBoxes.push(document.getElementById('color1'))
 // Move text cursor right to "#".
 colorBoxes[0].setSelectionRange(1, 1)
 
+// functions
+
+const DecimalToHex = (n) => Number(n).toString(16)
+
 const changeBackground = (obj) => {
   if (obj.value.slice(0, 1) !== '#') { 
     obj.style.backgroundColor = `#${obj.value}`
@@ -20,8 +24,6 @@ const changeBackground = (obj) => {
     obj.style.backgroundColor = obj.value
   }
 }
-
-const DecimalToHex = (n) => Number(n).toString(16)
 
 const calculateColor = (elementArray) => {
   // Calculate color and dsiplay result.
@@ -52,6 +54,7 @@ const calculateColor = (elementArray) => {
     rgb.push(DecimalToHex(Math.ceil(sum / colors.length)))
   }
   resultLabel.textContent = '#' + rgb.join('')
+  // resultLabel.value = '#' + rgb.join('')
   resultLabel.style.backgroundColor = '#' + rgb.join('')
   document.body.style.backgroundColor = '#' + rgb.join('')
 }
@@ -84,6 +87,16 @@ const removedColor = (elementArray) => {
   elementArray.pop().remove()
 }
 
+const copyToClipboard = () => {
+  result = document.getElementById('result')
+  resultText = result.textContent
+  navigator.clipboard.writeText(resultText)
+  // result.classList.add('result-balloon')
+  alert('Copied!')
+}
+
+//  add Event
+
 btn.addEventListener('click', () => {
   calculateColor(colorBoxes)
 })
@@ -111,3 +124,7 @@ removeNumberSignBtn.addEventListener('click', () => {
   removeNumberSignBtn.value = 'Remove #'
   numberSign = true
 })
+
+// result.addEventListener('click', () => {
+//   copyToClipboard()
+// })
